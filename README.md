@@ -3,6 +3,7 @@
 ## Domain Overview
 
 ### TASK_LIST
+
 Contains multiple tasks.
 
 - **title**: The title of the task list.
@@ -10,19 +11,22 @@ Contains multiple tasks.
 - **task_list**: A list of tasks.
 
 ### TASK
+
 Represents an individual task.
 
 - **title**: The title of the task.
 - **description**: A brief description of the task.
 - **dueDate**: The date by which the task needs to be completed. This should be in the format `YYYY-MM-DD`.
 - **status**: The current status of the task. Possible values are:
-    - `OPEN`
-    - `CLOSED`
+  - `OPEN`
+  - `CLOSED`
 - **priority**: The priority level of the task. Possible values are:
-    - `HIGH`
-    - `MEDIUM`
-    - `LOW`
+  - `HIGH`
+  - `MEDIUM`
+  - `LOW`
+
 ## ERD
+
 ```mermaid
 erDiagram
     TASK_LIST {
@@ -46,6 +50,7 @@ erDiagram
 ```
 
 ## Class
+
 ```java
 public class TaskList {
     private UUID id;
@@ -65,7 +70,7 @@ public class Task {
     private LocalDateTime dueDate;
     private Status status;
     private Priority priority;
-    private List<Task> taskList;
+    private ListTask taskList;
     private LocalDateTime createdDate;
     private LocalDateTime updatedDate;
 
@@ -83,6 +88,7 @@ public enum Priority {
     LOW
 }
 ```
+
 ## Spring JPA Entities
 
 ```java
@@ -138,24 +144,25 @@ public enum Priority {
     LOW
 }
 ```
+
 ## Task Lists API
 
 ### Task Lists
 
-| Method | Endpoint                        | Description          |
-|--------|---------------------------------|----------------------|
-| GET    | `/task-lists`                   | List Task Lists      |
-| POST   | `/task-lists`                   | Create Task List     |
-| GET    | `/task-lists/{task_list_id}`    | Get Task List by ID  |
-| PUT    | `/task-lists/{task_list_id}`    | Update Task List     |
-| DELETE | `/task-lists/{task_list_id}`    | Delete Task List     |
+| Method | Endpoint                     | Description         |
+| ------ | ---------------------------- | ------------------- |
+| GET    | `/task-lists`                | List Task Lists     |
+| POST   | `/task-lists`                | Create Task List    |
+| GET    | `/task-lists/{task_list_id}` | Get Task List by ID |
+| PUT    | `/task-lists/{task_list_id}` | Update Task List    |
+| DELETE | `/task-lists/{task_list_id}` | Delete Task List    |
 
 ### Tasks
 
-| Method | Endpoint                                    | Description          |
-|--------|--------------------------------------------|----------------------|
-| GET    | `/task-lists/{task_list_id}/tasks`         | List Tasks           |
-| POST   | `/task-lists/{task_list_id}/tasks`         | Create Task          |
-| GET    | `/task-lists/{task_list_id}/tasks/{task_id}` | Get Task by ID       |
-| PUT    | `/task-lists/{task_list_id}/tasks/{task_id}` | Update Task          |
-| DELETE | `/task-lists/{task_list_id}/tasks/{task_id}` | Delete Task          |
+| Method | Endpoint                                     | Description    |
+| ------ | -------------------------------------------- | -------------- |
+| GET    | `/task-lists/{task_list_id}/tasks`           | List Tasks     |
+| POST   | `/task-lists/{task_list_id}/tasks`           | Create Task    |
+| GET    | `/task-lists/{task_list_id}/tasks/{task_id}` | Get Task by ID |
+| PUT    | `/task-lists/{task_list_id}/tasks/{task_id}` | Update Task    |
+| DELETE | `/task-lists/{task_list_id}/tasks/{task_id}` | Delete Task    |
