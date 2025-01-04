@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: TodoAPP
+# datasource:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tododb
+    username: postgres
+    password: 089882413
+    driver-class-name: org.postgresql.Driver
+# jpa:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: false
+    
+# server:
+  port: 8080
+
+# config terminal
+logging:
+  level:
+    root: WARN
