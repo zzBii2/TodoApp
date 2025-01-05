@@ -6,9 +6,10 @@ import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sochoeun.domain.entity.Priority;
 import com.sochoeun.domain.entity.Status;
+import com.sochoeun.domain.entity.TaskList;
 
 public record TaskDto(
-        String id,
+        UUID id,
         String title,
         String description,
 
@@ -16,8 +17,8 @@ public record TaskDto(
         Status status,
         Priority priority,
 
-        @JsonProperty("task_list_id") UUID taskList,
+        @JsonProperty("task_list_id") TaskList taskList,
 
-        @JsonProperty("created_at") String createdAt,
-        @JsonProperty("updated_at") String updatedAt) {
+        @JsonProperty("created_at") LocalDateTime createdAt,
+        @JsonProperty("updated_at") LocalDateTime updatedAt) {
 }
